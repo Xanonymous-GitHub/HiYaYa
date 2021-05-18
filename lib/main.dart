@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import './pages/home.dart';
 import './pages/login.dart';
+import './pages/lobby.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,6 +31,11 @@ class App extends StatelessWidget {
         GetPage(
           name: LoginPage.sName,
           page: () => LoginPage(),
+          transition: Transition.fadeIn,
+        ),
+        GetPage(
+          name: LobbyPage.sName,
+          page: () => LobbyPage(),
           transition: Transition.fadeIn,
         )
       ],

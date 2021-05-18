@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 
-import 'chatroom.dart';
+import 'package:get/get.dart';
+
+import 'lobby.dart';
 
 const users = const {
   'dribbble@gmail.com': '12345',
   'hunter@gmail.com': 'hunter',
+  '1@1.1': '11111'
 };
 
 class LoginPage extends StatelessWidget {
   static final sName = "/login";
 
-  Duration get loginTime => Duration(milliseconds: 2250);
+  Duration get loginTime => Duration(milliseconds: 0);
 
   Future<String?> _authUser(LoginData data) async {
     print('Name: ${data.name}, Password: ${data.password}');
@@ -40,10 +43,8 @@ class LoginPage extends StatelessWidget {
       onLogin: _authUser,
       onSignup: _authUser,
       logo: "assets/hiyaya512.png",
-      onSubmitAnimationCompleted: () {
-        Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => ChatRoomPage(),
-        ));
+      onSubmitAnimationCompleted: () async {
+        await Get.offAllNamed(LobbyPage.sName);
       },
       onRecoverPassword: _recoverPassword,
     );
