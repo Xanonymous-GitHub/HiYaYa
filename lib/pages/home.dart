@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'login.dart';
+
 import '../components/svg_icon.dart';
 
-class Home extends StatelessWidget {
-  static final sName = "home";
+class HomePage extends StatelessWidget {
+  static final sName = "/";
 
-  const Home({Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +48,9 @@ class Home extends StatelessWidget {
                       borderRadius: BorderRadius.circular(30.0),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () async {
+                    await Get.toNamed(LoginPage.sName);
+                  },
                   child: Text(
                     "Start Chat",
                     style: TextStyle(
