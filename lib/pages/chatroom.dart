@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ChatRoomPage extends StatelessWidget {
-  static final sName = "/chatroom";
+  static final sName = "chatroom";
 
   const ChatRoomPage({Key? key}) : super(key: key);
 

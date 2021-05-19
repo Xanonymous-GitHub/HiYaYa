@@ -12,7 +12,7 @@ const users = const {
 };
 
 class LoginPage extends StatelessWidget {
-  static final sName = "/login";
+  static final sName = "login";
 
   Duration get loginTime => Duration(milliseconds: 0);
 

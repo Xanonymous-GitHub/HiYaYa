@@ -6,7 +6,7 @@ import 'login.dart';
 import '../components/svg_icon.dart';
 
 class HomePage extends StatelessWidget {
-  static final sName = "/";
+  static final sName = "home";
 
   const HomePage({Key? key}) : super(key: key);
 

@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import '../components/svg_icon.dart';
 
 class LobbyPage extends StatelessWidget {
-  static final sName = "/lobby";
+  static final sName = "lobby";
 
   const LobbyPage({Key? key}) : super(key: key);
 
