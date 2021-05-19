@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import './pages/home.dart';
 import './pages/login.dart';
 import './pages/lobby.dart';
+import './pages/chatroom.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +22,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialRoute: '/',
+      initialRoute: HomePage.sName,
       getPages: [
         GetPage(
           name: HomePage.sName,
@@ -37,7 +38,12 @@ class App extends StatelessWidget {
           name: LobbyPage.sName,
           page: () => LobbyPage(),
           transition: Transition.fadeIn,
-        )
+        ),
+        GetPage(
+          name: ChatRoomPage.sName,
+          page: () => ChatRoomPage(),
+          transition: Transition.fadeIn,
+        ),
       ],
     );
   }
