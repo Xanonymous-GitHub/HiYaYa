@@ -31,4 +31,23 @@ class FirebaseController extends GetxController {
     }
     return null;
   }
+
+  Future<String?> signUp({
+    required String email,
+    required String password,
+  }) async {
+    email = email.trim();
+    try {
+      await this.auth.createUserWithEmailAndPassword(
+            email: email,
+            password: password,
+          );
+    } on FirebaseAuthException catch (e) {
+      return e.code;
+    } catch (e) {
+      print(e);
+      return 'Unknown error occurred';
+    }
+    return null;
+  }
 }

@@ -24,6 +24,13 @@ class LoginPage extends StatelessWidget {
     );
   }
 
+  Future<String?> _createUser(LoginData data) async {
+    return Get.find<FirebaseController>().signUp(
+      email: data.name,
+      password: data.password,
+    );
+  }
+
   Future<String?> _recoverPassword(String name) async {
     print('Name: $name');
     await Future.delayed(loginTime);
@@ -37,7 +44,7 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return FlutterLogin(
       onLogin: _authUser,
-      onSignup: _authUser,
+      onSignup: _createUser,
       logo: "assets/hiyaya512.png",
       onSubmitAnimationCompleted: () async {
         await Get.offAllNamed(LobbyPage.sName);
