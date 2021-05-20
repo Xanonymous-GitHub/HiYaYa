@@ -42,6 +42,9 @@ class FirebaseController extends GetxController {
             email: email,
             password: password,
           );
+      if (!this.auth.currentUser!.emailVerified) {
+        await this.auth.currentUser!.sendEmailVerification();
+      }
     } on FirebaseAuthException catch (e) {
       return e.code;
     } catch (e) {
