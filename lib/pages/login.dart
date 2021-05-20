@@ -4,6 +4,7 @@ import 'package:flutter_login/flutter_login.dart';
 import 'package:get/get.dart';
 
 import 'lobby.dart';
+import '../controllers/firebase.dart';
 
 const users = const {
   'dribbble@gmail.com': '12345',
@@ -17,15 +18,10 @@ class LoginPage extends StatelessWidget {
   Duration get loginTime => Duration(milliseconds: 0);
 
   Future<String?> _authUser(LoginData data) async {
-    print('Name: ${data.name}, Password: ${data.password}');
-    await Future.delayed(loginTime);
-    if (!users.containsKey(data.name)) {
-      return 'Username not exists';
-    }
-    if (users[data.name] != data.password) {
-      return 'Password does not match';
-    }
-    return null;
+    return Get.find<FirebaseController>().signIn(
+      email: data.name,
+      password: data.password,
+    );
   }
 
   Future<String?> _recoverPassword(String name) async {

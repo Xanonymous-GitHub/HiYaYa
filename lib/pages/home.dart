@@ -5,6 +5,8 @@ import 'login.dart';
 
 import '../components/svg_icon.dart';
 
+import '../controllers/firebase.dart';
+
 class HomePage extends StatelessWidget {
   static final sName = "home";
 
@@ -38,24 +40,27 @@ class HomePage extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 30),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(
-                      vertical: 15,
-                      horizontal: 30,
+                child: GetBuilder<FirebaseController>(
+                  init: FirebaseController(),
+                  builder: (firebase) => ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 15,
+                        horizontal: 30,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
                     ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                  ),
-                  onPressed: () async {
-                    await Get.toNamed(LoginPage.sName);
-                  },
-                  child: Text(
-                    "Start Chat",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+                    onPressed: () async {
+                      await Get.toNamed(LoginPage.sName);
+                    },
+                    child: Text(
+                      "Start Chat",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
