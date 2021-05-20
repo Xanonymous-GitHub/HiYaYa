@@ -18,14 +18,14 @@ class LoginPage extends StatelessWidget {
   Duration get loginTime => Duration(milliseconds: 0);
 
   Future<String?> _authUser(LoginData data) async {
-    return Get.find<FirebaseController>().signIn(
+    return FirebaseController.to.signIn(
       email: data.name,
       password: data.password,
     );
   }
 
   Future<String?> _createUser(LoginData data) async {
-    return Get.find<FirebaseController>().signUp(
+    return FirebaseController.to.signUp(
       email: data.name,
       password: data.password,
     );
