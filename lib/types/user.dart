@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class UserToCreate {
   final String email;
   final String password;
@@ -35,7 +37,6 @@ class UserData {
   final String photoUrl;
   final bool? hasBlueVerify;
   final bool? hasGreyVerify;
-  final DateTime? registerTime;
 
   UserData({
     required this.uid,
@@ -48,7 +49,6 @@ class UserData {
     required this.photoUrl,
     this.hasBlueVerify,
     this.hasGreyVerify,
-    this.registerTime,
   });
 
   factory UserData.fromJson(Map<String, dynamic> json) {
@@ -62,7 +62,6 @@ class UserData {
       photoUrl: json['photo_url'],
       hasBlueVerify: json['has_blue_verify'],
       hasGreyVerify: json['has_grey_verify'],
-      registerTime: DateTime.parse(json['register_time']),
     );
   }
 
@@ -77,7 +76,6 @@ class UserData {
       'photoUrl': this.photoUrl,
       'hasBlueVerify': this.hasBlueVerify,
       'hasGreyVerify': this.hasGreyVerify,
-      'registerTime': this.registerTime,
     });
   }
 }
