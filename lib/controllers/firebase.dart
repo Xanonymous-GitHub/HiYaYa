@@ -1,6 +1,10 @@
+import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
+import '../types/user.dart';
+import '../api/user.dart';
 
 class FirebaseController extends GetxController {
   static FirebaseController get to => Get.find();
@@ -38,19 +42,14 @@ class FirebaseController extends GetxController {
   }) async {
     email = email.trim();
     try {
-      await this.auth.createUserWithEmailAndPassword(
-            email: email,
-            password: password,
-          );
-      if (!this.auth.currentUser!.emailVerified) {
-        await this.auth.currentUser!.sendEmailVerification();
-      }
-    } on FirebaseAuthException catch (e) {
-      return e.code;
-    } catch (e) {
-      print(e);
-      return 'Unknown error occurred';
+      await requestCreateUser(new UserToCreate(
+        email: email,
+        password: password,
+      ));
+    } on DioError catch (e) {
+      return e.response!.data;
     }
+    await signIn(email: email, password: password);
     return null;
   }
 }
