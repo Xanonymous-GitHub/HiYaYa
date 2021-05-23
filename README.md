@@ -1,16 +1,24 @@
-# hiyaya
+# HiYaYa Chat
+
+Unfortunately, because the author is really busy recently, the app has not been finished yet (,,ﾟДﾟ) ....
 
 Say HiYaYa~ to your friends on LINE with encrypted messages!
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+start page         | login page  |    
+--------------|-------|   
+<img height="500" src="https://i.imgur.com/XQdbkUR.webp" />   | <img height="500" src="https://i.imgur.com/a4QLwO7.webp" /> |  
 
-A few resources to get you started if this is your first Flutter project:
+  
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+BUT!!! I have actually developed [something similar](https://github.com/Xanonymous-GitHub/lightning-chat) not long ago ~ ~
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+### implemented features
+- sign in (firebase)
+- sign up (firebase)
+
+### TODO
+
+- chatroom system
+- friend system
